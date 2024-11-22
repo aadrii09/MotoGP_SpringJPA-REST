@@ -26,8 +26,8 @@ public class Circuito {
     private String nombre;
     @Column(length = 55, nullable = false)
     private String localidad;
-    @OneToMany(mappedBy = "circuito",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Circuito> listaCircuitos = new ArrayList<>();
+    @OneToMany(mappedBy = "carreraas",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Carrera> listaCarreras = new ArrayList<>();
     
     public Circuito() {
     }
@@ -73,6 +73,16 @@ public class Circuito {
 
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
+    }
+
+
+    public List<Carrera> getListaCarreras() {
+        return listaCarreras;
+    }
+
+
+    public void setListaCarreras(List<Carrera> listaCarreras) {
+        this.listaCarreras = listaCarreras;
     }
 
 

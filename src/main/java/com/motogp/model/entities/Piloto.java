@@ -29,8 +29,8 @@ public class Piloto {
     @Column(nullable = false, columnDefinition = "ENUM('PASIVA', 'AGRESIVA', 'TEMERARIA')")
     @Enumerated(EnumType.STRING)
     private String conduccion;
-    @OneToMany(mappedBy = "piloto",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Piloto> listaPilotos = new ArrayList<>();
+    @OneToMany(mappedBy = "carreras",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Carrera> listaCarreras = new ArrayList<>();
     public Piloto() {
     }
 
@@ -75,6 +75,16 @@ public class Piloto {
 
     public void setConduccion(String conduccion) {
         this.conduccion = conduccion;
+    }
+
+
+    public List<Carrera> getListaCarreras() {
+        return listaCarreras;
+    }
+
+
+    public void setListaCarreras(List<Carrera> listaCarreras) {
+        this.listaCarreras = listaCarreras;
     }
     
     
