@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -28,12 +29,14 @@ public class Carrera {
     
     private Integer id ;
     @Column(length = 55, nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "piloto_id")
+    private Piloto piloto;
     private String temporada;
     @Column(nullable = false, columnDefinition = "ENUM('ZERO', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 'SEXTO', 'SÉPTIMO', 'OCTAVO', 'NOVENO', 'DÉCIMO', 'UNDÉCIMO', 'DUODÉCIMO', 'DECIMOTERCERO', 'DECIMOCUARTO', 'DECIMOQUINTO', 'DECIMOSEXTO', 'DECIMOSÉPTIMO', 'DECIMOCTAVO', 'DECIMONOVENO', 'VIGÉSIMO', 'VIGÉSIMO_PRIMERO', 'VIGÉSIMO_SEGUNDO', 'VIGÉSIMO_TERCERO')")
     @Enumerated(EnumType.ORDINAL)
     private Posicion posicion;
-   @JoinColumn(name = "piloto_id")
-    private Piloto piloto;
+    @ManyToOne
     @JoinColumn(name = "circuito_id")
     private Circuito circuito;
     
