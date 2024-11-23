@@ -26,7 +26,7 @@ public class Circuito {
     private String nombre;
     @Column(length = 55, nullable = false)
     private String localidad;
-    @OneToMany(mappedBy = "carreraas",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "circuitos",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Carrera> listaCarreras = new ArrayList<>();
     
     public Circuito() {
